@@ -29,7 +29,7 @@ project/assembly_name="Asteroids"
 
 [editor]
 
-movie_writer/movie_file="C:/Godot/Projets/movie/video_de_ouf.avi"
+movie_writer/movie_file="C:/Godot/Projets/movie/video_ouf.avi"
 
 [input]
 
