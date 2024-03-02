@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://13xi13lw7wq7"]
+
+[ext_resource type="Script" path="res://Scenes/Projectile/Scripts/projectile.gd" id="1_agdnt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vbiat"]
+load_path = "res://.godot/imported/ProjectileSpriteSheet.png-ded582cf5c3d6ddb7bd3f5e35c532d5f.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7dn1"]
+atlas = SubResource("CompressedTexture2D_vbiat")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5hxg"]
+atlas = SubResource("CompressedTexture2D_vbiat")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2fxb"]
+atlas = SubResource("CompressedTexture2D_vbiat")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q02np"]
+atlas = SubResource("CompressedTexture2D_vbiat")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xc1yu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7dn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5hxg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2fxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q02np")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwyy1"]
+radius = 6.0
+
+[node name="Projectile" type="Area2D"]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_agdnt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xc1yu")
+autoplay = "default"
+frame_progress = 0.838757
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_kwyy1")
+debug_color = Color(0.894118, 0, 0.776471, 0.419608)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
