@@ -59,5 +59,11 @@ func destroy() -> void:
 func _on_body_entered(body):
 	#push_warning("colision asteroid et player")
 	if body is Player:
-		body.destroy()
+		pass
+		#body.destroy()
+
+func _on_area_entered(area):
+	if area is Asteroid:
+		direction = direction - (direction + direction)
 		
+
